@@ -3,10 +3,12 @@ version:             0.1.0.0
 license:             MIT
 license-file:        LICENSE
 author:              Franco Leonardo Bulgarelli
+Description:         Structured formatted for HSpec
 maintainer:          flbulgarelli@yahoo.com.ar
 category:            Test
 build-type:          Simple
 cabal-version:       >=1.10
+
 
 library
   hs-source-dirs:
