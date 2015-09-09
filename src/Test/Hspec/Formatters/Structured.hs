@@ -7,11 +7,11 @@ import Data.List
 structured :: Formatter
 structured = silent {
   exampleSucceeded = \p ->
-    write $ "Just (\"" ++ formatPath p ++"\",\"passed\",\"\"),"
+    write $ "Just (" ++ formatPath p ++",\"passed\",\"\"),"
 , exampleFailed    = \p (Right e) ->
-    write $ "Just (\"" ++ formatPath p ++"\",\"failed\",\""++ e ++"\"),"
+    write $ "Just (" ++ formatPath p ++",\"failed\","++ show e ++"),"
 , headerFormatter  = write $ "["
 , footerFormatter  = write $ "Nothing]"
 }
 
-formatPath (ps, p) = intercalate " " (ps ++ [p])
+formatPath (ps, p) = show.intercalate " " $ (ps ++ [p])
