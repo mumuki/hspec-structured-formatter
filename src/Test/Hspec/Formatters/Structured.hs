@@ -8,8 +8,9 @@ structured :: Formatter
 structured = silent {
   exampleSucceeded = \p ->
     write $ "Just (" ++ formatPath p ++",\"passed\",\"\"),"
-, exampleFailed    = \p (Right e) ->
-    write $ "Just (" ++ formatPath p ++",\"failed\","++ show e ++"),"
+, exampleFailed    = \p result -> case result of
+      (Right e) -> write $ "Just (" ++ formatPath p ++",\"failed\","++ show e ++"),"
+      (Left e)  -> write $ "Just (" ++ formatPath p ++",\"failed\","++ (show.show) e ++"),"
 , headerFormatter  = write $ "["
 , footerFormatter  = write $ "Nothing]"
 }
